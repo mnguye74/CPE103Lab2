@@ -1,0 +1,68 @@
+/**
+ * Karthik Jayakumar
+ * Tri Minh Nguyen
+ */
+
+// Class Imports
+import java.util.*;
+
+// Class Definition
+class Separator
+{
+	public static void main (String args[])
+	{
+		int n = 5;
+		float f[] = new float[n];
+		int t[] = new int[n];
+		int fCounter = 0, intCounter = 0;
+
+		Scanner input = new Scanner(System.in);
+		Boolean stop = false;
+		System.out.println("Please enter numbers!");
+		while (!stop)
+		{
+			if (input.hasNextInt())
+			{
+				if (intCounter < n)
+				{
+					t[intCounter] = input.nextInt();
+					intCounter++;
+				}
+				else
+					stop = true;
+			}
+			else if (input.hasNextFloat())
+			{
+				if (fCounter < n)
+				{
+					// Ask teacher if floats terminate program early once filled
+					f[fCounter] = input.nextFloat();
+					fCounter++;
+				}
+				else
+					stop = true;
+			}
+			else if (input.next() == "q")
+			{
+				stop = true;
+			}
+			else
+			{
+				stop = true;
+			}
+		}
+		System.out.print("Integers: ");
+		for (int i : t)
+		{
+			if (i != 0)
+				System.out.print(i + " ");
+		}
+		System.out.println();
+		System.out.print("Floats: ");
+		for (float i : f)
+		{
+			if (i != 0.0)
+				System.out.print(i + " ");
+		}
+	}
+}
